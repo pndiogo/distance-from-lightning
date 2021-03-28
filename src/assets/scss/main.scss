@@ -1,0 +1,13 @@
+// Bulma Customizations
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+$dark-blue: #000b76;
+
+
+// Bulma Overrides
+$family-sans-serif: "Oxygen", sans-serif;
+$primary: $dark-blue;
+$size-1: 4rem;
+$size-2: 3rem;
+
+// Bulma Import
+@import '~bulma';
