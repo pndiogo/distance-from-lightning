@@ -1,13 +1,13 @@
 <template>
-  <div id="app" class="app">
+  <div id="app" class="app animate__animated animate__fadeInUp">
 
-      <header class="has-text-centered header">
+      <header class="has-text-centered header animate__animated animate__fadeIn">
         <h1 class="title is-1 header__title has-text-light">Distance from lightning <img class="thunder" src="https://media.giphy.com/media/1AhfZ19VzAG7iOlwKK/giphy.gif" alt="Thunder"></h1>
         <p class="has-text-light">Simple lightning distance calculator.</p>
         <p class="has-text-light">Tap the button once to start the timer and a second time to stop and calculate the approximate distance in miles or kilometers.</p>
       </header>
 
-      <main class="container">
+      <main class="container animate__animated animate__fadeIn">
 
         <section class="has-text-centered timer">
           <stop-watch :reset-timer="resetTimer" :run-timer="runTimer" @lapsed-seconds="handleLapsedSeconds" @timer-reseted="handleReset"></stop-watch>
