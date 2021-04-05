@@ -5,8 +5,8 @@
     "scope": "/",
     "start_url": "/",
     "name": "Distance from Lightning",
-    "short_name": "DFL",
-    "description": "Simple lightning distance calculator.  Tap the button once to start the timer and a second time to stop and calculate the approximate distance in miles or kilometers.",
+    "short_name": "Distance from Lightning",
+    "description": "Simple lightning distance calculator. Tap the button once to start the timer and a second time to stop and calculate the approximate distance in miles or kilometers.",
     "icons": [
         {
             "src": "./android-chrome-192x192.png",

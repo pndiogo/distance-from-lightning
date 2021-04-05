@@ -16,8 +16,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "browserconfig.xml"
   },
   {
-    "revision": "0e0ef179b1ffb7dfe116",
-    "url": "css/app.1bd21e6a.css"
+    "revision": "39e79cd10c5752cb6f68",
+    "url": "css/app.00fdc1f9.css"
+  },
+  {
+    "revision": "535d63038ade337b66fe",
+    "url": "css/chunk-vendors.61003e6f.css"
   },
   {
     "revision": "76e51d5a6affcc76c3224e800704ac74",
@@ -28,15 +32,27 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "favicon-32x32.png"
   },
   {
-    "revision": "8082b713e2245cfeba9b917824a6e4af",
+    "revision": "064ace4777ac86d7627f455f36975452",
+    "url": "img/github.064ace47.png"
+  },
+  {
+    "revision": "4bd2fae20168fb07cf83e58dad32914a",
+    "url": "img/lightning.4bd2fae2.gif"
+  },
+  {
+    "revision": "f52bef8c4abd7ef570d3f4e3e3ccea28",
+    "url": "img/linkedin.f52bef8c.png"
+  },
+  {
+    "revision": "496406f836a104f622c4ec01f99e0a23",
     "url": "index.html"
   },
   {
-    "revision": "0e0ef179b1ffb7dfe116",
-    "url": "js/app.4e0df39d.js"
+    "revision": "39e79cd10c5752cb6f68",
+    "url": "js/app.7dd55caa.js"
   },
   {
-    "revision": "903fa700efd7bac4a27a",
+    "revision": "535d63038ade337b66fe",
     "url": "js/chunk-vendors.49221be3.js"
   },
   {
@@ -56,7 +72,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "safari-pinned-tab.svg"
   },
   {
-    "revision": "4f213672a5ab70e86129fa7ef19e1ad3",
+    "revision": "80adf9cd70262e5a900e4bdd11e03ccd",
     "url": "site.webmanifest"
   }
 ]);

@@ -4,7 +4,7 @@ module.exports = {
     config
       .plugin('html')
       .tap(args => {
-        args[0].title = 'Distance from lightning';
+        args[0].title = 'Distance from Lightning';
         return args;
       })
   }

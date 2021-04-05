@@ -1,4 +1,5 @@
-# distance-from-lightning
+# Distance from Lightning
+Simple lightning distance calculator.
 
 ## Project setup
 ```
@@ -28,3 +29,6 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 # distance-from-lightning
+
+### License
+[MIT](https://choosealicense.com/licenses/mit/)

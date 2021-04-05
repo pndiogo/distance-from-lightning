@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.74ecf4d20f4a36df1311b9eafac9dd05.js"
+  "precache-manifest.12bad61610ede89b3842afc3d96812a5.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "distance-from-lightning"});
