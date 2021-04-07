@@ -7,5 +7,11 @@ module.exports = {
         args[0].title = 'Distance from Lightning';
         return args;
       })
+  },
+  pwa: {
+    workboxOptions: {
+      skipWaiting: true,
+      clientsClaim: true
+    }
   }
 }

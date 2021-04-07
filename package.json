@@ -1,7 +1,7 @@
 {
   "author": "Paulo Diogo",
   "name": "distance-from-lightning",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Simple lightning distance calculator",
   "keywords":[ "vue","typescript","vue class components", "scss"],

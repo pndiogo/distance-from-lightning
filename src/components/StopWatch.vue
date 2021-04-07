@@ -1,28 +1,37 @@
 
 <template>
   <div>
-    <h2 class="timer title is-2 has-text-light">{{ formatTime(lapsedMilliseconds) }}</h2>
+    <section class="timer has-text-centered">
+      <h2 class="timer title is-2 has-text-light">{{ formatTime(lapsedMilliseconds) }}</h2>
+    </section>
+
+    <section class="action has-text-centered">
+      <button class="action__button title is-3" @click="handleClick">{{ !isTimerRunning ? 'Start' : 'Stop' }}</button>
+      <div class="action__backlight"></div>
+    </section>
+
+    <audio ref="audioPlayer">
+      <source src="../assets/sounds/click.mp3" type="audio/mpeg" preload="auto">
+    </audio>
   </div>
 </template>
 
 <script lang="ts">
-// @ts-nocheck
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class StopWatch extends Vue {
-  @Prop({ type: Boolean, required: true }) private resetTimer: boolean;
-  @Prop({ type: Boolean, required: true }) private runTimer: boolean;
-
   private currentTime = Date.now();
   private interval: null | number = null;
   private intervalUpdateTime = 10;
+  private isTimerRunning = false;
   private pausedTime = 0;
   private pauses = [];
   private millisecondsDigitAmount = 1;
   private millisecondsSeparator = ':';
   private startTime = Date.now();
-  private state = 'reset';
+  private state = 'paused';
 
   get lapsedMilliseconds (): number {
     return this.currentTime - this.startTime - this.pausedTime > 0
@@ -73,6 +82,13 @@ export default class StopWatch extends Vue {
     return time;
   }
 
+  private handleClick () {
+    (this.$refs.audioPlayer as HTMLAudioElement).play();
+    this.isTimerRunning = !this.isTimerRunning;
+
+    this.isTimerRunning ? this.start() : this.pause();
+  }
+
   private pause () {
     this.stopUpdateInterval();
     this.state = 'paused';
@@ -82,39 +98,15 @@ export default class StopWatch extends Vue {
       pauseLength: null
     });
 
-    this.$emit('lapsed-seconds', this.lapsedMilliseconds / 1000);
-  }
-
-  private reset (): void {
-    this.stopUpdateInterval();
-    this.state = 'reset';
-    this.startTime = Date.now();
-    this.currentTime = Date.now();
-    this.pauses = [];
-    this.pausedTime = 0;
-    this.$emit('timer-reseted');
-  }
-
-  private restart (): void {
-    this.reset();
-    this.start();
-  }
-
-  private resume (): void {
-    const end = Date.now();
-    const start = this.pauses[this.pauses.length - 1].pauseStart;
-    const length = end - start;
-    this.pausedTime += length;
-    this.pauses[this.pauses.length - 1].pauseEnd = end;
-    this.pauses[this.pauses.length - 1].pauseLength = length;
-    this.state = 'started';
-    this.startUpdateInterval();
+    this.$emit('timer-stopped', this.lapsedMilliseconds / 1000);
   }
 
   private start (): void {
     this.startTime = Date.now();
     this.state = 'started';
     this.startUpdateInterval();
+
+    this.$emit('timer-started');
   }
 
   /** Start updating of current time */
@@ -130,27 +122,66 @@ export default class StopWatch extends Vue {
   private updateCurrentTime (): void {
     this.currentTime = Date.now();
   }
-
-  @Watch('resetTimer')
-  onResetTimerChanged (val: string): void {
-    if (val) {
-      this.reset();
-    }
-  }
-
-  @Watch('runTimer')
-  onRunTimerChanged (val: string): void {
-    if (val) {
-      this.start();
-    } else {
-      this.pause();
-    }
-  }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/main.scss';
+
 .timer {
   font-family: sans-serif;
+}
+
+.action {
+  position: relative;
+  margin: 3rem 0;
+
+  @media (min-width: $tablet) {
+    margin: 5rem 0;
+  }
+
+  &__button {
+    position: relative;
+    height: 10rem;
+    width: 10rem;
+    margin-bottom: 0 !important;
+    background: linear-gradient(131deg, #af40ff, #5b42f3 50%, #00ddeb);
+    color: #fff;
+    border-radius: 50%;
+    border: none;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    cursor: pointer;
+    transition: all ease 150ms;
+    z-index: 2;
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      transform: scale(1.1);
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &__backlight {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 12rem;
+    width: 12rem;
+    background-image: linear-gradient(131deg, #af40ff, #5b42f3 50%, #00ddeb);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0.53;
+    filter: blur(50px);
+    z-index: 1;
+  }
 }
 </style>
