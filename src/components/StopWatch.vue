@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <section class="timer has-text-centered">
@@ -18,10 +17,13 @@
 
 <script lang="ts">
 // @ts-nocheck
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class StopWatch extends Vue {
+  @Prop({ type: Boolean, required: true })
+  private isSoundActive!: boolean;
+
   private currentTime = Date.now();
   private interval: null | number = null;
   private intervalUpdateTime = 10;
@@ -83,7 +85,10 @@ export default class StopWatch extends Vue {
   }
 
   private handleClick () {
-    (this.$refs.audioPlayer as HTMLAudioElement).play();
+    if (this.isSoundActive) {
+      (this.$refs.audioPlayer as HTMLAudioElement).play();
+    }
+
     this.isTimerRunning = !this.isTimerRunning;
 
     this.isTimerRunning ? this.start() : this.pause();
