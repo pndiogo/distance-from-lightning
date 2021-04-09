@@ -5,7 +5,7 @@
 
     <main class="main container animate__animated animate__fadeIn">
       <section class="timer has-text-centered">
-        <stop-watch @timer-started="handleTimerStarted" @timer-stopped="handleTimerStopped"></stop-watch>
+        <stop-watch :is-sound-active="isSoundActive" @timer-started="handleTimerStarted" @timer-stopped="handleTimerStopped"></stop-watch>
       </section>
 
       <section class="result has-text-centered">
@@ -23,7 +23,7 @@
             </button>
           </div>
           <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content" v-for="unit in units" :key="unit.id">
+            <div class="dropdown-content" v-for="unit in units" :key="unit.id" :class="{ 'is-active': selectedUnit.id === unit.id}">
               <a  class="dropdown-item" :class="{ 'is-active': selectedUnit.id === unit.id}" @click="selectUnit(unit)">
                 {{ unit.label }}
               </a>
@@ -31,6 +31,8 @@
           </div>
         </div>
       </section>
+
+      <sound-toggler @toggle-sound="isSoundActive = !isSoundActive"></sound-toggler>
     </main>
 
     <app-footer></app-footer>
@@ -43,6 +45,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import _debounce from 'lodash/debounce';
 import AppFooter from './components/AppFooter.vue'
 import AppHeader from './components/AppHeader.vue'
+import SoundToggler from './components/SoundToggler.vue'
 import StopWatch from './components/StopWatch.vue'
 import { directive as onClickaway } from 'vue-clickaway';
 
@@ -60,10 +63,12 @@ interface Unit {
   components: {
     AppFooter,
     AppHeader,
+    SoundToggler,
     StopWatch
   }
 })
 export default class App extends Vue {
+  private isSoundActive = true;
   private isUnitsSelectOpen = false;
   private result = 0;
   private units: Unit[] = [
@@ -172,12 +177,16 @@ body {
       }
 
       &__dropdown {
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
 
         .dropdown-trigger[disabled] {
           opacity: .5;
           pointer-events: none;
           cursor: not-allowed;
+        }
+
+        .dropdown-content.is-active {
+          background: #cecece;
         }
 
         .dropdown-content + .dropdown-content {
@@ -186,13 +195,12 @@ body {
 
         .dropdown-item {
           &.is-active {
-            background: linear-gradient(131deg, #af40ff, #5b42f3 50%, #00ddeb);
+            background: #cecece;
+            color: #4a4a4a;
           }
 
           &:hover:not(.is-active) {
-            color: #fff;
-            background: #010d1a;
-            background-image: linear-gradient(180deg, #070336, #010d1a);
+            background: #cecece;
           }
         }
 
