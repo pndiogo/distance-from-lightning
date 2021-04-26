@@ -1,6 +1,8 @@
 <template>
   <div id="app" class="app">
 
+    <app-settings></app-settings>
+
     <app-header></app-header>
 
     <main class="main container animate__animated animate__fadeIn">
@@ -10,7 +12,7 @@
 
       <section class="result has-text-centered">
         <div class="result__display">
-          <h2 class="title is-2 has-text-light result__title">{{ result }} {{ selectedUnit.abbr }}</h2>
+          <h2 class="title is-2 result__title">{{ result }} {{ selectedUnit.abbr }}</h2>
         </div>
 
         <div class="dropdown result__dropdown" :class="{'is-active': isUnitsSelectOpen }" v-on-clickaway="closeUnitSelect">
@@ -43,10 +45,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import _debounce from 'lodash/debounce';
-import AppFooter from './components/AppFooter.vue'
-import AppHeader from './components/AppHeader.vue'
-import SoundToggler from './components/SoundToggler.vue'
-import StopWatch from './components/StopWatch.vue'
+import AppFooter from './components/AppFooter.vue';
+import AppHeader from './components/AppHeader.vue';
+import AppSettings from './components/AppSettings.vue';
+import SoundToggler from './components/SoundToggler.vue';
+import StopWatch from './components/StopWatch.vue';
 import { directive as onClickaway } from 'vue-clickaway';
 
 interface Unit {
@@ -63,6 +66,7 @@ interface Unit {
   components: {
     AppFooter,
     AppHeader,
+    AppSettings,
     SoundToggler,
     StopWatch
   }
@@ -141,17 +145,13 @@ export default class App extends Vue {
 <style lang="scss">
 @import '@/assets/scss/main.scss';
 
-body {
-  background-color: #010d1a;
-  background-image: linear-gradient(180deg, #070336, #010d1a);
-}
-
 .app {
+  position: relative;
   min-height: 100vh; /* Fallback for browsers that do not support Custom Properties */
   min-height: calc(var(--vh, 1vh) * 100);
   max-width: 80%;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 4rem 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -164,7 +164,7 @@ body {
     z-index: 1;
 
     @media (min-width: $tablet) {
-      margin-bottom: 5rem;
+      margin-bottom: 3rem;
     }
 
     .result {
@@ -174,6 +174,11 @@ body {
         align-items: center;
         margin-bottom: 2rem;
         font-family: sans-serif;
+      }
+
+      &__title {
+        color: var(--text-color-primary);
+        transition: var(--transition-text-color);
       }
 
       &__dropdown {
