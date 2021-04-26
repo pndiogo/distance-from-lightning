@@ -33,25 +33,22 @@ export default class SoundToggler extends Vue {
     left: 50%;
     width: 2rem;
     height: auto;
-    fill: #f5f5f5;
+    fill: var(--text-color-primary);
     opacity: 0;
     transform: translate(-50%, 0);
     cursor: pointer;
-    transition: opacity 200ms ease-in-out, fill 180ms ease-in;
+    transition: opacity 200ms ease-in-out, fill 180ms ease-in, transform 150ms ease;
     z-index: -1;
 
     &--is-visible {
       opacity: 1;
       z-index: 1;
+    }
 
-      &:hover {
-        fill: #cecece;
-      }
+    &:hover {
+      transform: translate(-50%, 0) scale(1.1);
     }
   }
 
-  @media (min-width: $tablet) {
-
-  }
 }
 </style>

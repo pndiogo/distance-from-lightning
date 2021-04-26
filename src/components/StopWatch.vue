@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="timer has-text-centered">
-      <h2 class="timer title is-2 has-text-light">{{ formatTime(lapsedMilliseconds) }}</h2>
+      <h2 class="timer__title title is-2">{{ formatTime(lapsedMilliseconds) }}</h2>
     </section>
 
     <section class="action has-text-centered">
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-// @ts-nocheck
+
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
@@ -135,14 +135,19 @@ export default class StopWatch extends Vue {
 
 .timer {
   font-family: sans-serif;
+
+  &__title {
+    color: var(--text-color-primary);
+    transition: var(--transition-text-color);
+  }
 }
 
 .action {
   position: relative;
-  margin: 3rem 0;
+  margin: 2rem 0;
 
   @media (min-width: $tablet) {
-    margin: 5rem 0;
+    margin: 3rem 0;
   }
 
   &__button {
@@ -150,8 +155,9 @@ export default class StopWatch extends Vue {
     height: 10rem;
     width: 10rem;
     margin-bottom: 0 !important;
-    background: linear-gradient(131deg, #af40ff, #5b42f3 50%, #00ddeb);
-    color: #fff;
+    background: var(--action-background);
+    color: var(--action-text-color);
+    text-shadow: 4px 2px 18px black;
     border-radius: 50%;
     border: none;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
@@ -180,7 +186,7 @@ export default class StopWatch extends Vue {
     left: 50%;
     height: 12rem;
     width: 12rem;
-    background-image: linear-gradient(131deg, #af40ff, #5b42f3 50%, #00ddeb);
+    background-image: var(--action-backlight);
     transform: translate(-50%, -50%);
     pointer-events: none;
     border-radius: 50%;

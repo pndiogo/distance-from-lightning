@@ -9,5 +9,77 @@ $family-sans-serif: "Oxygen", sans-serif;
 $size-1: 4rem;
 $size-2: 3rem;
 
+// Varieables
+:root {
+    --color-primary-light: #f2f2f2;
+    --color-primary-dark: #010d1a;
+    --color-dark-blue: #070336;
+    --color-light-blue: #42adee;
+    --color-mid-blue: #4b95f0;
+    --color-pink: #af40ff;
+    --color-purple: #5b42f3;
+    --color-turqoise: #00ddeb;
+    --color-yellow: #f3dd33;
+
+    --gradient-1: linear-gradient(131deg, var(--color-pink), var(--color-purple) 50%, var(--color-turqoise));
+    --gradient-2: linear-gradient(131deg, var(--color-light-blue), var(--color-yellow) 10%, var(--color-primary-light) 20%);
+    --gradient-3: linear-gradient(180deg, var(--color-primary-light), var(--color-primary-light));
+    --gradient-4: linear-gradient(180deg, var(--color-dark-blue), var(--color-primary-dark));
+
+    --transition-text-color: color ease 150ms;
+    --transition-all: all 150ms ease;
+    --transition-slow: 0.2s ease;
+}
+
+body {
+    --action-background: var(--gradient-1);
+    --action-backlight: var(--gradient-2);
+    --action-text-color: var(--color-primary-light);
+    --body-background-color: var(--color-primary-light);
+    --body-background: var(--gradient-3);
+    --text-color-primary: var(--color-primary-dark);
+    --theme-toggle-background: var(--color-primary-light);
+    --theme-toggle-foreground: var(--color-primary-dark);
+}
+
+body.dark-theme {
+    --action-background: var(--gradient-1);
+    --action-backlight: var(--gradient-1);
+    --body-background-color: var(--color-primary-dark);
+    --body-background: var(--gradient-4);
+    --text-color-primary: var(--color-primary-light);
+    --theme-toggle-background: var(--color-primary-dark);
+    --theme-toggle-foreground: var(--color-primary-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    /* defaults to dark theme */
+    body {
+        --action-background: var(--gradient-1);
+        --action-backlight: var(--gradient-1);
+        --body-background-color: var(--color-primary-dark);
+        --body-background: var(--gradient-4);
+        --text-color-primary: var(--color-primary-light);
+        --theme-toggle-background: var(--color-primary-dark);
+        --theme-toggle-foreground: var(--color-primary-light);
+    }
+
+    body.light-theme {
+        --action-background: var(--gradient-1);
+        --action-backlight: var(--gradient-2);
+        --action-text-color: var(--color-primary-light);
+        --body-background-color: var(--color-primary-light);
+        --body-background: var(--gradient-3);
+        --text-color-primary: var(--color-primary-dark);
+        --theme-toggle-background: var(--color-primary-light);
+        --theme-toggle-foreground: var(--color-primary-dark);
+    }
+}
+
+body {
+    background-color: var(--body-background-color);
+    background-image: var(--body-background);
+}
+
 // Bulma Import
 @import '~bulma';
