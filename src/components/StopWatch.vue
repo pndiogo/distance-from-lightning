@@ -5,7 +5,7 @@
     </section>
 
     <section class="action has-text-centered">
-      <button class="action__button title is-3" @click="handleClick">{{ !isTimerRunning ? 'Start' : 'Stop' }}</button>
+      <button class="action__button title is-3" @click="handleClick">{{ !isTimerRunning ? $t('action.start') : $t('action.stop') }}</button>
       <div class="action__backlight"></div>
     </section>
 
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-
+// @ts-nocheck
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
