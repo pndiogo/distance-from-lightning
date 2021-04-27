@@ -14,8 +14,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import SunIcon from './SunIcon.vue';
-import MoonIcon from './MoonIcon.vue';
+import SunIcon from '@/components/SunIcon.vue';
+import MoonIcon from '@/components/MoonIcon.vue';
 
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -67,10 +67,9 @@ export default class ThemeToggler extends Vue {
 
   &__toggle {
     height: 32px;
-    width: 62px;
     background: var(--theme-toggle-foreground);
-    border-radius: 40px;
-    padding: 4px;
+    border-radius: 5px;
+    padding: 5px 12px;
     position: relative;
     transition: background var(--transition-slow);
     cursor: pointer;
@@ -78,7 +77,7 @@ export default class ThemeToggler extends Vue {
     &::before {
       content: "";
       display: block;
-      height: 24px;
+      height: 22px;
       width: 24px;
       border-radius: 30px;
       background: var(--theme-toggle-background);
@@ -90,7 +89,7 @@ export default class ThemeToggler extends Vue {
 
     &.dark {
       &::before {
-        transform: translateX(31px);
+        transform: translateX(34px);
       }
     }
   }
@@ -109,12 +108,13 @@ export default class ThemeToggler extends Vue {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
     height: 100%;
 
     svg {
       fill: var(--theme-toggle-background);
-      height: 24px;
-      width: 24px;
+      height: 22px;
+      width: 22px;
       z-index: 0;
     }
   }
