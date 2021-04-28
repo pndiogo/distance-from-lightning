@@ -1,15 +1,17 @@
 @charset "utf-8";
 
 // Imports
-@import "~animate.css/animate.css";
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+@import "~animate.css/animate.css";
+@import "~vue-multiselect/dist/vue-multiselect.min.css";
+@import "./multiselect";
 
 // Bulma Overrides
 $family-sans-serif: "Oxygen", sans-serif;
 $size-1: 4rem;
 $size-2: 3rem;
 
-// Varieables
+// Variables
 :root {
     --color-primary-light: #f2f2f2;
     --color-primary-dark: #010d1a;
