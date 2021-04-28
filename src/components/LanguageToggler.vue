@@ -53,9 +53,9 @@ export default class LanguageToggler extends Vue {
     }
   ];
 
-  private selectedLanguage: Language | undefined = '';
+  private selectedLanguage: Language | undefined | '' = '';
 
-  protected created () {
+  protected created (): void {
     const language = this.languages.find(language => { return language.id === this.$i18n.locale });
 
     if (language) {

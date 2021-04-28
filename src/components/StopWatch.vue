@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-
+// @ts-nocheck
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
