@@ -1,11 +1,15 @@
 {
-    "header": {
-        "description": "Einfacher Blitzentfernungsrechner.",
-        "instructions": "Tippen Sie einmal auf die Schaltfläche, um den Timer zu starten, und ein zweites Mal, um die ungefähre Entfernung in Meilen oder Kilometern anzuhalten und sofort zu berechnen."
-    },
     "action": {
         "start": "Start",
         "stop": "Halt"
+    },
+    "global": {
+        "enableDarkMode": "Aktivieren Sie den Dunkelmodus",
+        "enableLightMode": "Aktivieren Sie den Lichtmodus"
+    },
+    "header": {
+        "description": "Einfacher Blitzentfernungsrechner.",
+        "instructions": "Tippen Sie einmal auf die Schaltfläche, um den Timer zu starten, und ein zweites Mal, um die ungefähre Entfernung in Meilen oder Kilometern anzuhalten und sofort zu berechnen."
     },
     "units": {
         "miles": "Meilen",

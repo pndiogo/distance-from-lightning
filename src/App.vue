@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import AppFooter from '@/components/AppFooter.vue';
 import AppHeader from '@/components/AppHeader.vue';
 import AppSettings from '@/components/AppSettings.vue';
@@ -116,6 +116,15 @@ export default class App extends Vue {
 
   beforeDestroy (): void {
     window.removeEventListener('resize', _debounce(this.handleResize));
+  }
+
+  @Watch('$i18n.locale')
+  onLanguageChange (): void {
+    const unit = this.units.find(unit => unit.id === this.selectedUnit?.id);
+
+    if (unit) {
+      this.selectedUnit = unit;
+    }
   }
 }
 </script>

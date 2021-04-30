@@ -2,7 +2,7 @@
   <div class="theme-toggler" @click="toggleState">
     <div class="theme-toggler__toggle" :class="[isDark ? 'dark' : 'light']">
       <span class="theme-toggler__hidden">
-        {isDark ? "Enable Light Mode" : "Enable Dark Mode"}
+        {{ isDark ? $t('global.enableLightMode') : $t('global.enableDarkMode')}}
       </span>
       <div class="theme-toggler__icons">
         <SunIcon />
@@ -78,7 +78,7 @@ export default class ThemeToggler extends Vue {
       content: "";
       display: block;
       height: 22px;
-      width: 24px;
+      width: 22px;
       border-radius: 30px;
       background: var(--theme-toggle-background);
       position: absolute;
@@ -108,7 +108,6 @@ export default class ThemeToggler extends Vue {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
     height: 100%;
 
     svg {
@@ -116,6 +115,10 @@ export default class ThemeToggler extends Vue {
       height: 22px;
       width: 22px;
       z-index: 0;
+
+      &:first-child {
+        margin-right: 12px;
+      }
     }
   }
 }

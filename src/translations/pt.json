@@ -1,11 +1,15 @@
 {
-    "header": {
-        "description": "Uma ferramenta simples para calcular a distância do relâmpago.",
-        "instructions": "Toque no botão uma vez para iniciar o cronómetro e uma segunda vez para parar e calcular instantaneamente a distância aproximada em milhas ou quilómetros."
-    },
     "action": {
         "start": "Começar",
         "stop": "Parar"
+    },
+    "global": {
+        "enableDarkMode": "Ativar modo escuro",
+        "enableLightMode": "Habilitar modo claro"
+    },
+    "header": {
+        "description": "Uma ferramenta simples para calcular a distância do relâmpago.",
+        "instructions": "Toque no botão uma vez para iniciar o cronómetro e uma segunda vez para parar e calcular instantaneamente a distância aproximada em milhas ou quilómetros."
     },
     "units": {
         "miles": "Milhas",
