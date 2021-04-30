@@ -1,11 +1,15 @@
 {
-    "header": {
-        "description": "Calculatrice simple de distance de foudre.",
-        "instructions": "Appuyez une fois sur le bouton pour démarrer le chronomètre et une deuxième fois pour arrêter et calculer instantanément la distance approximative en miles ou en kilomètres."
-    },
     "action": {
         "start": "Démarrer",
         "stop": "Arrêter"
+    },
+    "global": {
+        "enableDarkMode": "Activer le mode sombre",
+        "enableLightMode": "Activer le mode d'éclairage"
+    },
+    "header": {
+        "description": "Calculatrice simple de distance de foudre.",
+        "instructions": "Appuyez une fois sur le bouton pour démarrer le chronomètre et une deuxième fois pour arrêter et calculer instantanément la distance approximative en miles ou en kilomètres."
     },
     "units": {
         "miles": "Miles",

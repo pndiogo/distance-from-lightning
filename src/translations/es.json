@@ -1,11 +1,15 @@
 {
-    "header": {
-        "description": "Calculadora de distancia de rayo simple.",
-        "instructions": "Toque el botón una vez para iniciar el temporizador y una segunda vez para detenerlo y calcular instantáneamente la distancia aproximada en millas o kilómetros."
-    },
     "action": {
         "start": "Inicio",
         "stop": "Parar"
+    },
+    "global": {
+        "enableDarkMode": "Habilitar el modo oscuro",
+        "enableLightMode": "Habilitar el modo de luz"
+    },
+    "header": {
+        "description": "Calculadora de distancia de rayo simple.",
+        "instructions": "Toque el botón una vez para iniciar el temporizador y una segunda vez para detenerlo y calcular instantáneamente la distancia aproximada en millas o kilómetros."
     },
     "units": {
         "miles": "Millas",

@@ -1,11 +1,15 @@
 {
-  "header": {
-    "description": "Simple lightning distance calculator.",
-    "instructions": "Tap the button once to start the timer and a second time to stop and instantly calculate the approximate distance in miles or kilometers."
-  },
   "action": {
     "start": "Start",
     "stop": "Stop"
+  },
+  "global": {
+    "enableDarkMode": "Enable dark mode",
+    "enableLightMode": "Enable light mode"
+  },
+  "header": {
+    "description": "Simple lightning distance calculator.",
+    "instructions": "Tap the button once to start the timer and a second time to stop and instantly calculate the approximate distance in miles or kilometers."
   },
   "units": {
     "miles": "Miles",

@@ -1,11 +1,15 @@
 {
-    "header": {
-        "description": "Semplice calcolatore della distanza del fulmine.",
-        "instructions": "Tocca il pulsante una volta per avviare il timer e una seconda volta per fermarlo e calcolare istantaneamente la distanza approssimativa in miglia o chilometri."
-    },
     "action": {
         "start": "Inizio",
         "stop": "Fermare"
+    },
+    "global": {
+        "enableDarkMode": "Abilita la modalità oscura",
+        "enableLightMode": "Abilita modalità luce"
+    },
+    "header": {
+        "description": "Semplice calcolatore della distanza del fulmine.",
+        "instructions": "Tocca il pulsante una volta per avviare il timer e una seconda volta per fermarlo e calcolare istantaneamente la distanza approssimativa in miglia o chilometri."
     },
     "units": {
         "miles": "Miglia",
