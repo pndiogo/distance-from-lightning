@@ -23,10 +23,10 @@
             label="label"
             openDirection="below"
             :options="units"
-            :preselect-first="true"
             :searchable="false"
             :show-labels="false"
             track-by="id"
+            @select="setUnit"
             >
           </multiselect>
         </div>
@@ -112,10 +112,26 @@ export default class App extends Vue {
   created (): void {
     this.handleResize();
     window.addEventListener('resize', _debounce(this.handleResize, 200));
+
+    const localUnit = localStorage.getItem('unit');
+
+    if (localUnit) {
+      const unit = this.units.find(unit => { return unit.id === localUnit });
+
+      if (unit) {
+        this.selectedUnit = unit;
+      }
+    } else {
+      this.selectedUnit = this.units[0];
+    }
   }
 
   beforeDestroy (): void {
     window.removeEventListener('resize', _debounce(this.handleResize));
+  }
+
+  setUnit (unit: Unit): void {
+    localStorage.setItem('unit', unit.id);
   }
 
   @Watch('$i18n.locale')
