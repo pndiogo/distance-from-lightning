@@ -12,10 +12,26 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class SoundToggler extends Vue {
   private isSoundActive = true;
 
-  private toggleSound () {
+  protected created () {
+    const currentAudioSetting = localStorage.getItem('sound');
+
+    if (currentAudioSetting) {
+      this.isSoundActive = (currentAudioSetting === 'true');
+
+      this.emitSoundState();
+    }
+  }
+
+  private toggleSound (): void {
     this.isSoundActive = !this.isSoundActive;
 
-    this.$emit('toggle-sound', this.isSoundActive)
+    localStorage.setItem('sound', this.isSoundActive.toString());
+
+    this.emitSoundState();
+  }
+
+  private emitSoundState (): void {
+    this.$emit('toggle-sound', this.isSoundActive);
   }
 }
 
