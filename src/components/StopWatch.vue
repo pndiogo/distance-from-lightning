@@ -21,8 +21,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class StopWatch extends Vue {
-  @Prop({ type: Boolean, required: true })
-  private isSoundActive!: boolean;
+  @Prop({ type: Boolean, required: true }) private isSoundActive!: boolean;
 
   private currentTime = Date.now();
   private interval: null | number = null;

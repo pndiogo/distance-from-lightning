@@ -32,7 +32,7 @@
         </div>
       </section>
 
-      <sound-toggler @toggle-sound="isSoundActive = !isSoundActive"></sound-toggler>
+      <sound-toggler @toggle-sound="toggleSound"></sound-toggler>
     </main>
 
     <app-footer></app-footer>
@@ -103,6 +103,10 @@ export default class App extends Vue {
   private handleResize (): void {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+
+  private toggleSound (isSoundPlaying): void {
+    this.isSoundActive = isSoundPlaying;
   }
 
   private translatedLabel (language: Language) {
