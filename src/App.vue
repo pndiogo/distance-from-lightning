@@ -105,7 +105,7 @@ export default class App extends Vue {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }
 
-  private toggleSound (isSoundPlaying): void {
+  private toggleSound (isSoundPlaying: boolean): void {
     this.isSoundActive = isSoundPlaying;
   }
 
